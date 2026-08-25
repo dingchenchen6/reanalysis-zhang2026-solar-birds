@@ -1,0 +1,9 @@
+# Original replication package — not redistributed (see README)
+original_replication/
+paper/
+# Large derived binary — regenerate via analysis/01
+output/panel_master.rds
+# System
+.DS_Store
+.Rhistory
+.claude/
