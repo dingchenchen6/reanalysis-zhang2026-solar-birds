@@ -1,0 +1,9 @@
+metric,value
+"platform rows (2014-2023, county-matched)",2974636
+county-months matched to published panel,17404
+"cor(H recomputed as-is, H published)",0.706
+"cor(H after minimal QC, H published)",0.677
+median |H_qc - H_pub|,0.354
+share all-ones checklists 2014-2023,46.9
+records with count >= 1e6,0
+records at int32 maximum,0
