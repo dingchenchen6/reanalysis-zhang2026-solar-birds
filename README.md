@@ -1,8 +1,8 @@
-# Birdwatchers, not birds
+# Observation effort, not birds
 
 **Live report / 在线报告**: https://dingchenchen6.github.io/reanalysis-zhang2026-solar-birds/
 
-**观鸟者,而非鸟:对《中国光伏扩张政策降低鸟类多样性》的独立审计与重分析**
+**观测努力,而非鸟类:对《中国光伏扩张政策降低鸟类多样性》的独立审计与重分析**
 
 Supporting archive for a Technical Comment submitted to *Science* in response to:
 
