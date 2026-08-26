@@ -7,7 +7,7 @@ Chenchen Ding, Peking University · 2026-08-26
 
 | File | Purpose |
 |---|---|
-| 01_Technical_Comment_Science.docx / .pdf | Main manuscript: title page, 49-word abstract, 992-word main text, 10 references, acknowledgments, figure legends, Figs. 1–2 |
+| 01_Technical_Comment_Science.docx / .pdf | Main manuscript: title page, 49-word abstract, 1000-word main text, 10 references, acknowledgments, figure legends, Figs. 1–2 |
 | 02_Supplementary_Materials.docx / .pdf | Materials and Methods; figs. S1–S2; Tables S1 (36-specification curve + robustness variants) and S2 (diagnostic regressions) |
 | 03_Cover_Letter.docx / .pdf | Cover letter to the editors |
 | figures/Fig1, Fig2 (.png 600 dpi / .pdf vector) | Main figures, upload as separate files |
@@ -16,7 +16,7 @@ Chenchen Ding, Peking University · 2026-08-26
 
 ## Compliance check (Science Technical Comments)
 
-- Main text 992 words (limit ~1,000) · Abstract 49 words (limit 50)
+- Main text 1000 words (limit ~1,000) · Abstract 49 words (limit 50)
 - References 10 (limit 15) · Figures 2 + supplementary S1–S2
 - Submission window: within 3 months of publication (21 Aug 2026 → ~21 Nov 2026)
 - All numbers reproducible from github.com/dingchenchen6/reanalysis-zhang2026-solar-birds
