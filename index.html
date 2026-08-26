@@ -253,7 +253,7 @@ nav a{font-size:12.5px}
   <h1>光伏政策“降低”的是观测努力,<br>不是鸟类多样性
     <span class="en">A reanalysis of Zhang <i>et al.</i> (2026), “China's solar expansion policy reduces bird diversity,” <i>Science</i> <b>393</b>, 831–836</span>
   </h1>
-  <p class="verdict">这是一次从作者公开数据出发的<b>独立审计</b>:我先把 −2.10% 的头条结果精确复现到小数点后四位,再走完自己的质控、测量效度检验、指标论证与努力标准化流程。结论:校正观测努力后效应翻正归零;36 条可辩护分析路径中<strong>全部 18 条努力校正路径与零不可区分</strong>;若发表效应为真,校正后的设计有 <strong>96% 的功效</strong>检出它,而实际并未检出。</p>
+  <p class="verdict">这是一次从作者公开数据出发的<b>独立审计</b>:我先把 −2.10% 的头条结果精确复现到小数点后四位,再走完自己的质控、物种级核验、测量效度检验、指标论证与努力标准化流程。结论:校正观测努力后效应翻正归零;36 条可辩护分析路径中<strong>全部 18 条努力校正路径与零不可区分</strong>;若发表效应为真,校正后的设计有 <strong>96% 的功效</strong>检出它,而实际并未检出。</p>
 
   <div class="hero-grid">
     <div>
@@ -269,7 +269,7 @@ nav a{font-size:12.5px}
       H. Zhang <i>et al.</i>, China's solar expansion policy reduces bird diversity.<br>
       <i>Science</i> <b>393</b>, 831–836 (2026) · <span class="doi">doi:10.1126/science.aee0747</span><br><br>
       <b>其主张</b> 政策强度每升 1 SD,县级鸟类 Shannon 指数降 2.10%(β=−0.0125***),机制为土地转换。<br><br>
-      <b>本评估</b> 完整重分析(R / fixest,全部可复现),并逐条核验中国动物学会鸟类学分会声明及赖江山、彭甲超等学者的公开评论。
+      <b>本评估</b> 完整重分析(R / fixest,全部可复现);以我们持有的记录级平台数据完成物种级核验,并逐条核验中国动物学会鸟类学分会声明及赖江山、彭甲超等学者的公开评论。
     </div>
   </div>
 </header>
@@ -312,14 +312,23 @@ nav a{font-size:12.5px}
   <div class="tbl-wrap"><table>
     <thead><tr><th>规则</th><th>判定内容</th><th>触发数</th><th>含义</th></tr></thead>
     <tbody>
-      <tr><td class="mono-td">R1</td><td>H &gt; ln(S):熵超丰富度上限</td><td class="mono-td">0</td><td rowspan="2" style="vertical-align:middle"><span class="ok">✓ 作者的指数计算在给定输入下是自洽的</span>;该确认的应当确认,问题不在算术</td></tr>
+      <tr><td class="mono-td">R1</td><td>H &gt; ln(S):熵超丰富度上限</td><td class="mono-td">0</td><td rowspan="2" style="vertical-align:middle"><span class="ok">✓ 作者的指数计算在给定输入下是自洽的</span>;这一点应当明确写出,问题不在算术</td></tr>
       <tr><td class="mono-td">R2</td><td>D &gt; 1−e^(−H):违反 Hill 数递减</td><td class="mono-td">0</td></tr>
       <tr><td class="mono-td">R3</td><td>S≥2 且 H=0:多物种却零熵,数学不可能</td><td class="mono-td no">1</td><td><b>仅有的一次触发:新会区 2015-03</b>(S=4,H=8×10⁻⁷)。四个物种而熵为零,在数学上只能来自某一物种的相对丰度于机器精度内等于 1,对应 21.47 亿只白鹭那条 int32 溢出记录。我的规则在不知道该记录的情况下独立将其标出,而该取值进入了主回归的因变量</td></tr>
       <tr><td class="mono-td">R4</td><td>S≥20 且 H&lt;0.2:超大计数软签名</td><td class="mono-td no">18</td><td>与 R3 同构的污染候选(如广汉 2023-11:25 种,H=0.02)</td></tr>
       <tr><td class="mono-td">R5</td><td>D &gt; 1−1/S:超均匀群落上限</td><td class="mono-td">0</td><td>—</td></tr>
     </tbody>
   </table></div>
-  <div class="prose"><p>公开复现包只含县-月聚合值。我们进一步用“新纪录出现机制”项目持有的记录级平台数据(平台原始省级交付 + 多年事件表,后者 1,169 万条物种记录)做了物种级核验:原始交付中计数列零缺失、语义泄漏率最高仅 0.35%(确为物种个体数);<b>原始 2024 交付中 43.7%、论文时间窗(2014–2023)事件表中 46.9% 的清单所有计数均为 1</b>(分会报告平台界面全量为 40.5%,三个独立口径一致落在 40–47%);平台交付版均有计数上限清洗(最大值 10 万),分会核实的三条天文数字记录不存在于任一交付版、却进入了论文因变量——平台自己都会清洗,论文没有;按同样思路重算县-月 Shannon,与论文因变量在 17,404 个重叠县-月上的相关仅 <b>r = 0.71</b>——同一平台、两个合理的清单集合,指数只共享约一半方差,县-月聚合值对“用哪份清单”高度敏感。</p></div>
+  <div class="prose"><p>公开复现包只含县-月聚合值。我进一步用“新纪录出现机制”项目持有的记录级平台数据做物种级核验。这批数据分两层:平台按省交付的原始 xlsx(2024 年增量交付:32 省、811 万行、282,197 份清单;计数列零缺失,“同清单内恒定且等于物种数”的语义泄漏率全国最高仅 0.35%,可确认为真实的物种个体数),以及由早期多年版交付构建的记录级事件表(2000–2025,1,169 万条物种记录)。“计数全为 1”的清单占比由此获得三个独立口径的互证:</p></div>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th>来源</th><th>覆盖</th><th>计数全为 1 的清单占比</th></tr></thead>
+    <tbody>
+      <tr><td>平台原始 2024 省级交付(本审计验证)</td><td class="mono-td">282,197 份清单</td><td class="mono-td no">43.7%</td></tr>
+      <tr><td>多年事件表,论文时间窗(本审计验证)</td><td class="mono-td">2014–2023</td><td class="mono-td no">46.9%</td></tr>
+      <tr><td>中国动物学会鸟类学分会(平台界面全量)</td><td class="mono-td">504,499 份报告</td><td class="mono-td no">40.5%</td></tr>
+    </tbody>
+  </table></div>
+  <div class="prose"><p>三个口径一致落在 40–47%:<span class="hl">近半清单不携带丰度信息,基于丰度加权的指数对其无效</span>。版本对照还提供了一个直接证据:平台各交付版都做过计数上限清洗(最大值 10 万),分会核实的三条天文数字记录不存在于任何交付版,却出现在论文的因变量中;平台自身的交付尚且清洗,论文管线未见此步。按同样思路从事件表重算县-月 Shannon,与论文因变量在 17,404 个重叠县-月上的相关系数仅 <b>r = 0.71</b>:同一平台、两个合理的清单集合,县-月指数只共享约一半方差,聚合值对“用哪份清单”高度敏感。</p></div>
 </section>
 
 <!-- ============ 证据 I ============ -->
@@ -334,7 +343,7 @@ nav a{font-size:12.5px}
     <div class="card"><div class="k">SIGNATURE / 签名</div><h3>作者结果自带“短清单签名”</h3>
       <p>其表 S19:PSI 对应丰富度<b>下降</b>、均匀度<b>上升</b>。我的复现显示均匀度随努力单调下降(1 人 0.84,>100 人 0.73);“物种更少但更均匀”正是<b>清单变短</b>的机械后果。</p></div>
     <div class="card"><div class="k">CORRUPTED / 污染</div><h3>错误记录直接进入回归</h3>
-      <p>21.47 亿只白鹭(int32 上限)使新会区 2015-03 的 H = <span class="num">8×10⁻⁷</span>,该值作为因变量进入主回归;另有 <span class="num">18</span> 个县-月“≥20 种但 H&lt;0.2”。鸟类学分会另证实平台 <span class="num">40.5%</span> 的报告为计数全 1 的“清单型”,基于丰度的 Shannon 指数对这类记录无效。</p></div>
+      <p>21.47 亿只白鹭(int32 上限)使新会区 2015-03 的 H = <span class="num">8×10⁻⁷</span>,该值作为因变量进入主回归;另有 <span class="num">18</span> 个县-月“≥20 种但 H&lt;0.2”。三源核验(<span class="num">43.7%</span> / <span class="num">46.9%</span> / 40.5%,见 STEP 02)显示近半清单计数全为 1,基于丰度的 Shannon 指数对这类记录无效。</p></div>
   </div>
 
   <figure>
@@ -379,7 +388,7 @@ nav a{font-size:12.5px}
     </tbody>
   </table></div>
   <div class="prose">
-    <p>“政策减少观测努力”这个关联本身不也很可疑吗?正是如此。<span class="hl">我从未主张、也无需主张这是政策的行为效应。</span>观鸟人数在此的方法学身份是<b>阴性对照结果变量</b>(negative-control outcome):一个不应被“政策的生态效应”影响的变量,在同一设计下出现强“效应”,即证明设计存在残余混淆。上表的四项机制检验精确定位了混淆来源:81% 来自<b>填零县混入</b>;“明年政策影响今天观鸟者”的<b>预趋势</b>证明政策变化与努力变化共享未被年月固定效应吸收的县内时间模式;而 PSI 连实际光伏建设都不预测,施工排斥的解释与原文的机制叙事同时断裂。</p>
+    <p>“政策减少观测努力”这个关联本身不也很可疑吗?正是如此。<span class="hl">我从未主张、也无需主张这是政策的行为效应。</span>观鸟人数在此的方法学身份是<b>阴性对照结果变量</b>(negative-control outcome):一个不应被“政策的生态效应”影响的变量,在同一设计下出现强“效应”,即证明设计存在残余混淆。上表的四项机制检验精确定位了混淆来源:81% 来自<b>填零县混入</b>;“明年政策影响今天观鸟者”的<b>预趋势</b>证明政策变化与努力变化共享未被年月固定效应吸收的县内时间模式;而 PSI 在县内并不预测实际光伏建设,施工排斥的解释与原文的机制叙事同时失去支点。</p>
     <p><b>现实解释</b>:县级光伏政策文书的扩散地理(追赶型、欠发达县表达发展诉求的时点)与公民科学的扩散地理(自城市与观鸟热点向外的中产休闲文化扩散)在县内时间维度上系统性错位;夜光对照的干净结果说明这不是 GDP 层面的混淆,而是 TWFE 无法吸收的社会行为扩散速度差。<b>生态学意义</b>:当观测网络本身在快速演化时,“观测到的多样性变化”首先记录的是网络的演化;任何与网络扩散时空相位相关的变量,都会在这类面板中“显著影响生物多样性”;本案中承载这一伪关联的恰好是鸟类记录。</p>
   </div>
 
@@ -532,7 +541,7 @@ nav a{font-size:12.5px}
       <div class="abs"><b>摘要</b> — Zhang 等(Research Articles,2026 年 8 月 21 日)报告光伏政策强度降低了中国县级鸟类多样性。基于其公开复现数据的重分析显示:其因变量追踪的是观鸟努力而非鸟类群落;校正努力、数据污染与未经验证的政策零值后,报告的效应完全消失。</div>
       <p>Zhang 等将光伏政策强度指数(PSI)与聚合到县-月尺度的公民科学观鸟记录相联系,得出“政策强度每升 1 SD,香农多样性下降 2.10%”的结论。利用作者公开的复现包,我们精确复现了其首选估计(β = −0.0125,县级聚类 SE = 0.0037,n = 46,371)。然而,复现暴露出测量、混淆与推断三个层面的问题,任何一个单独成立都足以推翻结论。</p>
       <h4>因变量度量的是观测过程</h4>
-      <p>估计样本中 38.8% 的县-月仅来自一名观鸟者;县覆盖中位数 11/120 个月。观测丰富度与 H 是观鸟人数的陡峭饱和函数(单人 15 种 / H=1.90;>100 人 142 种 / H=3.60),这是一条物种累积曲线。作者表 S19 的“丰富度降、均匀度升”正是短清单的机械签名(均匀度随努力从 0.84 降至 0.73)。输入数据未经验证:40.5% 为计数全 1 的清单型记录;一条 2,147,483,647 只白鹭(int32 上限)的记录使新会区 2015-03 的 H 坍缩至 8×10⁻⁷ 并直接进入回归;另有 18 个县-月呈同一污染签名。原文未描述任何质控。</p>
+      <p>估计样本中 38.8% 的县-月仅来自一名观鸟者;县覆盖中位数 11/120 个月。观测丰富度与 H 是观鸟人数的陡峭饱和函数(单人 15 种 / H=1.90;>100 人 142 种 / H=3.60),这是一条物种累积曲线。作者表 S19 的“丰富度降、均匀度升”正是短清单的机械签名(均匀度随努力从 0.84 降至 0.73)。输入数据未经验证:我们持有的记录级平台数据中,2014–2023 年 46.9% 的清单计数全为 1(平台原始 2024 交付中 43.7%;分会口径 40.5%);一条 2,147,483,647 只白鹭(int32 上限)的记录使新会区 2015-03 的 H 坍缩至 8×10⁻⁷ 并直接进入回归;另有 18 个县-月呈同一污染签名。原文未描述任何质控。</p>
       <h4>观鸟努力与处理相混淆</h4>
       <p>样本内观鸟人数十年增长 171 倍,与 PSI 翻两番同期。作者仅控制人均时长(Duration),它抹去总努力增长,且本身响应 PSI(β=−0.0177,P&lt;10⁻⁴),是“坏控制”。PSI 强预测努力:观鸟人数 β=−0.041(P=2×10⁻¹¹)、总时长 β=−0.057(P=3×10⁻¹³)。在作者规格中加入 ln(观鸟人数),PSI 系数翻正为 +0.0032(P=0.31);丰富度效应缩水 92%(−0.98→−0.07,P=0.37);2020–2023 爆发期内校正后 β=+0.0002(P=0.96)。</p>
       <h4>估计脆弱且量级可忽略</h4>
@@ -545,7 +554,7 @@ nav a{font-size:12.5px}
       <div class="abs"><b>Abstract</b> — Zhang <i>et al.</i> (Research Articles, 21 August 2026) report that solar-policy stringency reduced county-level bird diversity across China. Reanalyzing their public replication data, we show their outcome variable tracks birdwatching effort rather than bird communities; correcting effort, data contamination, and unvalidated policy zeros eliminates the reported effect entirely.</div>
       <p>Zhang <i>et al.</i> link a photovoltaic policy-stringency index (PSI) to citizen-science bird records aggregated to county-months and conclude that a one-standard-deviation policy increase reduced Shannon diversity by 2.10%. Using the authors' public replication package, we reproduce their preferred estimate exactly (β = −0.0125, clustered SE = 0.0037, n = 46,371). The reproduction, however, exposes three problems — concerning measurement, confounding, and inference — each individually sufficient to overturn the conclusion.</p>
       <h4>The outcome variable measures the observation process</h4>
-      <p>In the estimation sample, 38.8% of county-months derive from a single birdwatcher, and the median county is observed in 11 of 120 months. Observed richness and Shannon diversity are steep, saturating functions of the number of birdwatchers (one birder: 15 species, H = 1.90; >100 birders: 142 species, H = 3.60) — a species-accumulation curve, not a property of bird communities. The authors' table S19 carries its signature: lower richness but <i>higher</i> evenness under PSI, exactly what shorter lists produce mechanically. The inputs are unvalidated: 40.5% of platform reports are checklist-type records with all counts equal to one; a single report of 2,147,483,647 little egrets (the int32 maximum) collapses Xinhui County's March 2015 value to 8 × 10⁻⁷ and enters the regression unfiltered; 18 further county-months share this corruption signature. No data-quality screening is described.</p>
+      <p>In the estimation sample, 38.8% of county-months derive from a single birdwatcher, and the median county is observed in 11 of 120 months. Observed richness and Shannon diversity are steep, saturating functions of the number of birdwatchers (one birder: 15 species, H = 1.90; >100 birders: 142 species, H = 3.60) — a species-accumulation curve, not a property of bird communities. The authors' table S19 carries its signature: lower richness but <i>higher</i> evenness under PSI, exactly what shorter lists produce mechanically. The inputs are unvalidated: every count equals one in 46.9% of 2014–2023 checklists in record-level platform data we hold (43.7% in the platform's raw 2024 delivery; 40.5% platform-wide per the Ornithological Society); a single report of 2,147,483,647 little egrets (the int32 maximum) collapses Xinhui County's March 2015 value to 8 × 10⁻⁷ and enters the regression unfiltered; 18 further county-months share this corruption signature. No data-quality screening is described.</p>
       <h4>Birdwatching effort is confounded with the treatment</h4>
       <p>Birdwatcher counts grew 171-fold over 2014–2023, precisely as mean PSI quadrupled. The authors control only hours <i>per birder</i> (`Duration`), which discards total-effort growth and itself responds to PSI (β = −0.0177, P &lt; 10⁻⁴) — a bad control. PSI strongly predicts effort (birdwatchers: β = −0.041, P = 2 × 10⁻¹¹; total hours: β = −0.057, P = 3 × 10⁻¹³). Adding ln(birdwatchers) to the authors' own specification flips the coefficient to +0.0032 (P = 0.31); the richness decline shrinks 92%; within 2020–2023 the corrected effect is +0.0002 (P = 0.96).</p>
       <h4>The estimate is fragile and negligible</h4>
