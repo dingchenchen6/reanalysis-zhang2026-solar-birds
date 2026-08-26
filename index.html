@@ -203,6 +203,7 @@ footer{border-top:1px solid var(--line);margin-top:80px}
     <a href="#e2">证据Ⅱ·混淆</a>
     <a href="#e3">证据Ⅲ·推断</a>
     <a href="#final">终审·36规格</a>
+    <a href="#metrics">指标条件</a>
     <a href="#reviews">各方评论裁定</a>
     <a href="#rebuttal">回应预案</a>
     <a href="#tc">Technical Comment</a>
@@ -302,13 +303,20 @@ footer{border-top:1px solid var(--line);margin-top:80px}
       <tr><td>ln(观鸟人数) ~ PSI</td><td class="mono-td no">−0.041</td><td class="mono-td">2×10⁻¹¹</td><td>政策更严的县,记录到的<b>观鸟者更少</b></td></tr>
       <tr><td>ln(总观鸟时长) ~ PSI</td><td class="mono-td no">−0.057</td><td class="mono-td">3×10⁻¹³</td><td>总努力同样被"抑制"</td></tr>
       <tr><td>Duration(作者的控制变量) ~ PSI</td><td class="mono-td no">−0.0177</td><td class="mono-td">2.8×10⁻⁵</td><td>其"努力控制"是处理后变量——<b>坏控制</b>(bad control)</td></tr>
+      <tr><td>ln(观鸟人数) ~ PSI,<b>仅政策记录县</b></td><td class="mono-td">−0.008</td><td class="mono-td">0.17</td><td><b>81% 的"努力效应"由填零县混入制造</b>——与主回归同源</td></tr>
+      <tr><td>ln(观鸟人数) ~ <b>明年的 PSI</b>(控制当年)</td><td class="mono-td no">−0.045</td><td class="mono-td">1.5×10⁻⁶</td><td><b>因果不可能时间倒流</b>——预趋势铁证,识别出县级差异趋势</td></tr>
+      <tr><td>实际光伏面积 ~ PSI(县内)</td><td class="mono-td">−0.017</td><td class="mono-td">0.27</td><td>政策文本强度<b>连实际建设都不预测</b>,"施工排斥"与原文机制链第一环同时断裂</td></tr>
+      <tr><td>ln(夜间灯光) ~ PSI</td><td class="mono-td">−0.0017</td><td class="mono-td">0.24</td><td>第二阴性对照干净:混淆不是经济总量,而是社会扩散差异</td></tr>
       <tr><td><b>ShannonBD ~ PSI + ln(观鸟人数)</b></td><td class="mono-td">+0.0032</td><td class="mono-td">0.31</td><td><b>加一个正确的努力项,主效应翻正归零</b></td></tr>
       <tr><td>丰富度 ~ PSI(其表 S19)</td><td class="mono-td no">−0.975***</td><td class="mono-td">10⁻⁷</td><td rowspan="2">丰富度效应 <b>92% 由努力解释</b></td></tr>
       <tr><td>丰富度 ~ PSI + 努力项</td><td class="mono-td">−0.073</td><td class="mono-td">0.37</td></tr>
       <tr><td>2020–2023(爆发期)+ 努力项</td><td class="mono-td">+0.0002</td><td class="mono-td">0.96</td><td>爆发期内校正后完全为零</td></tr>
     </tbody>
   </table></div>
-  <div class="prose"><p>这不是规格敏感性的口水仗:<span class="hl">"生物多样性下降"的估计,是一个观鸟努力效应披着生态学的外衣。</span></p></div>
+  <div class="prose">
+    <p>"政策减少观鸟者"本身也很奇怪?——正确。<span class="hl">我们从未主张、也无需主张这是政策的行为效应。</span>观鸟人数在此的方法学身份是<b>阴性对照结果变量</b>(negative-control outcome):一个不应被"政策的生态效应"影响的变量,在同一设计下出现强"效应",即证明设计存在残余混淆。上表的四项机制检验精确定位了混淆来源:81% 来自<b>填零县混入</b>;"明年政策影响今天观鸟者"的<b>预趋势</b>证明政策变化与努力变化共享未被年月固定效应吸收的县内时间模式;而 PSI 连实际光伏建设都不预测,施工排斥的解释与原文的机制叙事同时断裂。</p>
+    <p><b>现实解释</b>:县级光伏政策文书的扩散地理(追赶型、欠发达县表达发展诉求的时点)与公民科学的扩散地理(自城市与观鸟热点向外的中产休闲文化扩散)在县内时间维度上系统性错位;夜光对照的干净结果说明这不是 GDP 层面的混淆,而是 TWFE 无法吸收的社会行为扩散速度差。<b>生态学意义</b>:当观测网络本身在快速演化时,"观测到的多样性变化"首先记录的是网络的演化;任何与网络扩散时空相位相关的变量,都会在这类面板中"显著影响生物多样性"——鸟只是这次的受害者。</p>
+  </div>
 
   <figure>
     <a href="figures/Fig2_effect_fragility.png" target="_blank" rel="noopener">
@@ -352,6 +360,35 @@ footer{border-top:1px solid var(--line);margin-top:80px}
       <div class="fcell"><div class="fo">物种丰富度(log)</div><div class="fv">−1.06% / SD</div><div class="fc">95% CI [−3.89, +1.77] · P=0.46</div></div>
     </div>
     <p class="foot"><b>边界声明:</b>这不是"光伏无害"的证明。地面光伏可能置换栖息地,需要严格的影响研究。本重分析表明的是:<b>这套数据在这个设计下,任何方向的效应都检测不到</b>;对丰富度可排除超过约 4%/SD 的下降。要回答真正的问题,需要物种级记录、显式观测过程模型(occupancy / list-length)与针对光伏设施的配对野外设计。</p>
+  </div>
+</section>
+
+<!-- ============ 指标使用条件 ============ -->
+<section id="metrics" class="rv">
+  <p class="sec-tag">MEASUREMENT VALIDITY · 正面回答</p>
+  <h2>观鸟数据到底能不能度量 Shannon、Simpson 与丰富度?</h2>
+  <p class="sec-sub">可以——但三个指标的合格门槛差异极大,每一条都需要显式论证;原文的用法一条都不满足。这不是否定观鸟大数据(它是无可替代的科学资产),而是区分"原材料"与"成品"。</p>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th>指标(Hill 阶)</th><th>需要什么</th><th>观鸟数据的障碍</th><th>合格使用路径</th></tr></thead>
+    <tbody>
+      <tr><td><b>物种丰富度</b>(q=0)</td><td>仅出现/不出现(incidence)</td>
+        <td>观测丰富度是努力的饱和函数(图 1B:单人 15 种 → >100 人 142 种)</td>
+        <td><b>门槛最低</b>:清单型记录仍有效;但必须努力标准化——基于覆盖率的稀疏化(Chao &amp; Jost 2012;iNEXT)、清单长度分析(Szabo 2010)、或多物种占据模型(Dorazio &amp; Royle 2005)</td></tr>
+      <tr><td><b>Shannon</b>(q=1)</td><td>相对丰度 pᵢ 的可靠估计</td>
+        <td><b>四重障碍</b>:① 40.5% 清单型记录计数恒为 1,无丰度信息;② 种间检测异质性——计数比例≠丰度比例(集群/显眼种系统性高估、隐蔽种低估);③ 计数协议不标准(精确计数与"万余只"粗估混杂);④ 朴素估计量小样本负偏(≈ −(S−1)/2n),单清单县-月尤重</td>
+        <td>仅限完整清单(complete checklists)+ 计数验证 + 覆盖率标准化 Hill 数(Chao et al. 2014)或渐近无偏估计(Chao &amp; Jost 2015)+ 检测异质性校正;或改用建模产物(如 eBird Status &amp; Trends 的相对丰度面)</td></tr>
+      <tr><td><b>Simpson</b>(q=2)</td><td>优势种相对丰度</td>
+        <td>对最大计数最敏感:真实水鸟大群与错误溢出值都会把指数拖向 0;对稀有种检测不敏感(此点上稍稳健)</td>
+        <td>同 Shannon,且必须先解决极端计数验证</td></tr>
+    </tbody>
+  </table></div>
+  <div class="cards" style="margin-top:18px">
+    <div class="card"><div class="k">CHECKLIST / 合格条件七条</div><h3>可直接用于审稿的门槛</h3>
+      <p>① 仅完整清单;② 记录级质控(计数上限/空间精度/时间有效性);③ 总努力与人均努力分开显式建模;④ 等覆盖率(而非等样本量)比较;⑤ 检测过程建模(occupancy / list-length)至少作敏感性;⑥ 声明推断对象是"观测群落"还是"真实群落";⑦ 同时报告 Hill q=0,1,2,结论不得依赖单一指数。</p></div>
+    <div class="card"><div class="k">AUDIT / 原文逐条核验</div><h3>七条,零通过</h3>
+      <p>无清单过滤(40.5% 清单型混入)· 无质控(int32 值进入因变量)· 只控人均时长(坏控制)· 原始县-月聚合(单人月与百人月直接可比性为零)· 无检测建模(短清单签名被读成生态信号)· 未声明推断对象(标题直称 bird diversity)· Shannon 单指标主导。</p></div>
+    <div class="card"><div class="k">POSITIVE / 建设性出路</div><h3>这套数据能做什么</h3>
+      <p>努力标准化后的<b>丰富度</b>是最可辩护的入口;占据模型框架下的物种级分析(检测/状态分离)可支持分布动态推断;若目标是光伏设施的局地生态影响,正确工具是<b>设施尺度配对设计</b>(BACI、点计数、声学监测)——县-月政策面板从一开始就不是回答该问题的量具。</p></div>
   </div>
 </section>
 

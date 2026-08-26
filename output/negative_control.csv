@@ -1,0 +1,9 @@
+label,focal,coef,se,p,N,note
+"Effort ~ PSI, full sample (baseline)",PI,-0.0410430405460678,0.00609668547932208,2.09715368097612e-11,46371,""
+"Effort ~ PSI, policy-source counties only",PI,-0.00779810773955273,0.00563347880446478,0.166472161084064,26007,"if survives, not an imputation artifact"
+Realized PV area ~ PSI (within county),PI,-0.017476826549439,0.0157752757037301,0.268035186935726,46371,H1 requires strong positive
+Effort ~ realized PV area,Area,-0.0167507150448662,0.0100602304011754,0.096037897287552,46371,direct displacement test
+Effort ~ PSI + county linear trends,PI,-0.0157147429579701,0.00604115804232741,0.00934610779315677,46371,H2 predicts collapse
+Shannon ~ PSI + county linear trends,PI,-0.0078821511257408,0.00482359462569173,0.102375893487718,46371,same trends should kill headline too
+Effort ~ NEXT-year PSI (conditional on current),PI,-0.0446821151152726,0.00926261782637713,1.514586401468e-06,32778,"significant lead = differential trend, not causation"
+ln(nightlight) ~ PSI,PI,-0.00172389230570904,0.00145806220670125,0.237199757477243,46371,policy should not dim city lights
