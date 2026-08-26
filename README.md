@@ -54,7 +54,7 @@ git clone https://github.com/jianke22/China-s-solar-expansion-policy-reduces-bir
 cd original_replication && unar -o extracted DATA.rar
 ```
 
-Then run the scripts in order (R ≥ 4.5; fixest, data.table, haven, ggplot2, patchwork, scales, readxl). Scripts 01–09 use only the public package; scripts 10–11 additionally require record-level platform data held under a data agreement and report aggregated outputs only. Every number in the Comment, the report, and the web page is written to `output/*.csv` by these scripts.
+Scripts 01–09 use only the public package. Scripts 10–11 use the record-level China Birdwatching Record Center data archived in this repository's [releases](../../releases): download `birdwatch_event_table_2000_2025.csv.gz` and `china_birdwatch_dataset_2024_delivery.rar` (checksums in `SHA256SUMS.txt`), place them under `data_raw/`, and unpack the RAR in place. Then run the scripts in order (R ≥ 4.5; fixest, data.table, haven, ggplot2, patchwork, scales, readxl). Every number in the Comment, the report, and the web page is written to `output/*.csv` by these scripts.
 
 ## Related public critiques
 

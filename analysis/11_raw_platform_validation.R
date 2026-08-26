@@ -12,7 +12,11 @@
 # Output: output/raw_platform_validation.csv (+ per-year table)
 # ============================================================
 suppressPackageStartupMessages({library(readxl); library(data.table)})
-files <- list.files("/tmp/birdxlsx", full.names = TRUE)
+# 原始省级交付:data_raw/ 下解压 china_birdwatch_dataset_2024_delivery.rar 后的"鸟种数据"目录,
+# 否则用本机暂存 / provincial delivery: unpacked under data_raw/, else local staging
+xdir <- "data_raw/china_birdwatch_dataset_2024_delivery/中国观鸟数据集/鸟种数据"
+if (!dir.exists(xdir)) xdir <- "/tmp/birdxlsx"
+files <- list.files(xdir, full.names = TRUE, pattern = "xlsx$")
 res <- list()
 for (f in files) {
   pv <- gsub("\\.xlsx$", "", basename(f))

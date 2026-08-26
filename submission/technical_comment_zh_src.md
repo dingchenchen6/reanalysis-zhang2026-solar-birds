@@ -51,6 +51,6 @@ Zhang 等(*1*)将光伏政策强度指数(PSI)与聚合到县-月尺度的公民
 
 ## 声明
 
-**数据与材料可用性:** 全部分析基于原文作者公开的复现包(github.com/jianke22/China-s-solar-expansion-policy-reduces-bird-diversity)。复现本文每一个数字与图件的 R 脚本及派生数据表,可应编辑与审稿人要求提供,并将在接收后以 DOI 形式公开存档。用于物种级核验的记录级观鸟平台数据依数据协议持有;其汇总核验结果随文提供。**利益冲突:** 作者声明无利益冲突。
+**数据与材料可用性:** 全部分析基于原文作者公开的复现包(github.com/jianke22/China-s-solar-expansion-policy-reduces-bird-diversity)。复现本文每一个数字与图件的 R 脚本及派生数据表已公开于 github.com/dingchenchen6/reanalysis-zhang2026-solar-birds;用于物种级核验的观鸟记录中心记录级数据集存档于该仓库的 Releases。全部档案将在接收后以 DOI 形式存档。**利益冲突:** 作者声明无利益冲突。
 
 *(本文为英文投稿稿的中文版本;投稿以英文版为准。补充材料含方法、图 S1–S2 与表 S1–S2。)*

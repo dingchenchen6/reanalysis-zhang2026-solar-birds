@@ -41,7 +41,7 @@ To establish what the data do support, we estimated all 36 combinations of sampl
 
 **Funding:** The author received no specific funding for this work.
 
-**Data and materials availability:** All analyses use the original authors' public replication package (github.com/jianke22/China-s-solar-expansion-policy-reduces-bird-diversity). R scripts, derived tables, and figure source data reproducing every number in this Comment are available to the editors and reviewers on request and will be archived publicly with a DOI upon acceptance. Record-level birdwatching-platform data used for species-level verification are held under a data agreement with the China Birdwatching Record Center; aggregated verification outputs are included in the repository.
+**Data and materials availability:** All analyses use the original authors' public replication package (github.com/jianke22/China-s-solar-expansion-policy-reduces-bird-diversity). R scripts, derived tables, and figure source data reproducing every number in this Comment are openly available at github.com/dingchenchen6/reanalysis-zhang2026-solar-birds; the record-level China Birdwatching Record Center dataset used for species-level verification is archived in the repository's releases. The full archive will be deposited with a DOI upon acceptance.
 
 ## Supplementary Materials
 

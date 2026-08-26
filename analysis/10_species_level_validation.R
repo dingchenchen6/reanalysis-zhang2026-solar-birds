@@ -27,9 +27,11 @@ setDTthreads(4)
 
 base <- "/Users/dingchenchen/Documents/能源转型与生态保护"
 out  <- file.path(base, "output")
-F    <- paste0("/Users/dingchenchen/Documents/New project/",
-               "bird_dynamic_occupancy_analysis/results/",
-               "table_combined_occurrence_events_2000_2025.csv.gz")
+# 事件表:优先仓库内 data_raw/(从 GitHub Release 下载),否则用本机项目路径
+# Event table: prefer data_raw/ (from the GitHub release), else the local project path
+F <- file.path(base, "data_raw/birdwatch_event_table_2000_2025.csv.gz")
+if (!file.exists(F)) F <- paste0("/Users/dingchenchen/Documents/New project/",
+  "bird_dynamic_occupancy_analysis/results/table_combined_occurrence_events_2000_2025.csv.gz")
 
 ## ---- 1. 读取记录级数据(仅观鸟平台源)/ load record-level platform data ----
 cols <- c("source","event_id","species","species_cn","year","month",
