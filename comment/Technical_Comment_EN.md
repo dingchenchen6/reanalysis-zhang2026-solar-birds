@@ -37,13 +37,19 @@ To establish what the data do support, we crossed sample (full versus policy-doc
 
 ---
 
-## Figure captions
+## Figures
+
+![Figure 1](../figures/Fig1_observation_process.png)
 
 **Fig. 1. The dependent variable of Zhang *et al*. measures the observation process, not bird communities.**
 (**A**) Within the authors' estimation sample, summed birdwatcher counts (red) grew 171-fold during 2014–2023 and observed county-months (orange) 25-fold, while mean policy stringency (blue) quadrupled; mean observed Shannon H (green) rose accordingly. All series indexed to 2014 = 1, log scale. (**B**) Observed Shannon H (green, left axis; mean ± s.d.) and species richness (blue, right axis) against the number of birdwatchers per county-month: a species-accumulation curve. 38.8% of county-months derive from a single birder. (**C**) Distribution of the number of months (of 120) in which each county has any birdwatching record; median 11. (**D**) Monthly Shannon H for Xinhui County, Guangdong: a single record of 2,147,483,647 little egrets (the int32 maximum) collapses March 2015 to H = 8 × 10⁻⁷, which enters the regression unfiltered; 18 further county-months show ≥20 species yet H < 0.2.
 
+![Figure S1](../figures/Fig3_specification_curve.png)
+
 **Fig. S1 (supplementary). Specification curve across 36 defensible analysis paths.**
 Estimates of the PSI effect (as % of outcome mean per 1 s.d., 95% CIs) for the full cross of sample (all counties vs. policy-documented counties), cleaning (as published; corrupted county-months removed; ≥2 birders), outcome metric (Shannon, Simpson, log richness), and effort adjustment (authors' `Duration` only vs. explicit total-effort terms), ordered by estimate; the lower panel indicates each path's decisions. All seven significant negative estimates (orange) arise without effort terms; all 18 effort-adjusted paths are null. The open circle marks the published specification.
+
+![Figure 2](../figures/Fig2_effect_fragility.png)
 
 **Fig. 2. The reported policy effect vanishes under correction and is negligible in magnitude.**
 (**A**) Effect of a one-standard-deviation PSI increase, expressed as % of the outcome mean with 95% CIs, under the authors' exact specification and minimal corrections (identical data, county and year-month fixed effects, county-clustered SEs). Adding total-effort terms, restricting to counties documented in the policy source, or splitting by period eliminates the effect; the richness outcome (triangles) shrinks 92% under effort control. Red dotted line: the headline −2.10%. (**B**) Variance ledger for county-month Shannon H: county and year-month fixed effects absorb 31.0%, the nine controls 2.7%, and PSI — the headline variable — 0.03%, with 66.3% unexplained.
