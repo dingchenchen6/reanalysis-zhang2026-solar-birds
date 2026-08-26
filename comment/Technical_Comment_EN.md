@@ -73,7 +73,7 @@ Estimates of the PSI effect (as % of outcome mean per 1 s.d., 95% CIs) for the f
 
 ## Data and code availability
 
-All analyses use the authors' public replication package (github.com/jianke22/China-s-solar-expansion-policy-reduces-bird-diversity). R scripts reproducing every number and figure in this Comment are available at [repository URL to be added upon deposit] and will be archived with a DOI on acceptance.
+All analyses use the authors' public replication package (github.com/jianke22/China-s-solar-expansion-policy-reduces-bird-diversity). R scripts and derived tables reproducing every number and figure in this Comment are available to the editors and reviewers on request and will be archived publicly with a DOI upon acceptance.
 
 ## Competing interests
 
