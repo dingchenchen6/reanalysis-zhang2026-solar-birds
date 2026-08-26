@@ -10,6 +10,7 @@ Chenchen Ding, Peking University · 2026-08-26
 | 01_Technical_Comment_Science.docx / .pdf | Main manuscript: title page, 49-word abstract, 1000-word main text, 10 references, acknowledgments, figure legends, Figs. 1–2 |
 | 02_Supplementary_Materials.docx / .pdf | Materials and Methods; figs. S1–S2; Tables S1 (36-specification curve + robustness variants) and S2 (diagnostic regressions) |
 | 03_Cover_Letter.docx / .pdf | Cover letter to the editors |
+| 04_Technical_Comment_中文版.docx / .pdf | Chinese version of the manuscript (for reference and domestic circulation; the English version is authoritative for submission) |
 | figures/Fig1, Fig2 (.png 600 dpi / .pdf vector) | Main figures, upload as separate files |
 | figures/FigS1, FigS2 (.png 600 dpi / .pdf vector) | Supplementary figures |
 | manuscript_src.md, supplementary_src.md, cover_letter_src.md | Markdown sources (regenerate DOCX via pandoc) |
