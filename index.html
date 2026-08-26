@@ -199,10 +199,11 @@ footer{border-top:1px solid var(--line);margin-top:80px}
   <div class="nav-in">
     <span class="nav-brand">观鸟者,<em>而非鸟</em></span>
     <a href="#replicate">复现</a>
+    <a href="#qc">质控审计</a>
     <a href="#e1">证据Ⅰ·测量</a>
     <a href="#e2">证据Ⅱ·混淆</a>
     <a href="#e3">证据Ⅲ·推断</a>
-    <a href="#final">终审·36规格</a>
+    <a href="#final">重新估计</a>
     <a href="#metrics">指标条件</a>
     <a href="#reviews">各方评论裁定</a>
     <a href="#rebuttal">回应预案</a>
@@ -216,7 +217,7 @@ footer{border-top:1px solid var(--line);margin-top:80px}
   <h1>光伏政策降低的是观鸟者数量,<br>不是鸟类多样性
     <span class="en">A reanalysis of Zhang <i>et al.</i> (2026), “China's solar expansion policy reduces bird diversity,” <i>Science</i> <b>393</b>, 831–836</span>
   </h1>
-  <p class="verdict">我们从作者公开的数据与代码出发,把 −2.10% 的头条结果<b>精确复现到小数点后四位</b>——然后证明它在<strong>测量、混淆、推断</strong>三个层面各自崩塌:校正观测努力后,效应翻正并归零;36 条可辩护分析路径中,<strong>全部 18 条努力校正路径的效应都与零不可区分</strong>。</p>
+  <p class="verdict">这是一次从作者公开数据出发的<b>独立审计</b>:我先把 −2.10% 的头条结果精确复现到小数点后四位,再走完自己的质控、测量效度检验、指标论证与努力标准化流程。结论:校正观测努力后效应翻正归零;36 条可辩护分析路径中<strong>全部 18 条努力校正路径与零不可区分</strong>;若发表效应为真,校正后的设计有 <strong>96% 的功效</strong>检出它——它没有被检出。</p>
 
   <div class="hero-grid">
     <div>
@@ -265,6 +266,24 @@ footer{border-top:1px solid var(--line);margin-top:80px}
     </tbody>
   </table></div>
   <div class="prose"><p>复现无异议。<span class="hl">问题不在算术,在于回归左端那个变量到底在度量什么。</span>以下三组证据,任何一组单独成立都足以推翻结论。</p></div>
+</section>
+
+<!-- ============ 质控审计 ============ -->
+<section id="qc" class="rv">
+  <p class="sec-tag">QUALITY-CONTROL AUDIT · 我的质控规则</p>
+  <h2>第二步:五条规则的独立质控——数学不可能的值只有一个,恰是那条白鹭记录</h2>
+  <p class="sec-sub">原文未描述任何质控。我利用一个事实:Shannon(H)、Simpson(D)、丰富度(S)不是三个独立的数,真实群落的三元组必须满足数学约束——违反者无需生态学判断即为错误。对缩尾前的 46,283 个县-月:</p>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th>规则</th><th>判定内容</th><th>触发数</th><th>含义</th></tr></thead>
+    <tbody>
+      <tr><td class="mono-td">R1</td><td>H &gt; ln(S):熵超丰富度上限</td><td class="mono-td">0</td><td rowspan="2" style="vertical-align:middle"><span class="ok">✓ 作者的指数计算给定输入是自洽的</span>——该确认的确认;问题不在算术</td></tr>
+      <tr><td class="mono-td">R2</td><td>D &gt; 1−e^(−H):违反 Hill 数递减</td><td class="mono-td">0</td></tr>
+      <tr><td class="mono-td">R3</td><td>S≥2 且 H=0:多物种却零熵,数学不可能</td><td class="mono-td no">1</td><td><b>唯一触发 = 新会区 2015-03</b>(S=4,H=8×10⁻⁷):四个物种、熵为零,唯一解释是某种的相对丰度在机器精度内等于 1——即 21.47 亿只白鹭那条 int32 溢出记录。我的规则在不知道该记录的情况下独立捕获它,且它进入了主回归因变量</td></tr>
+      <tr><td class="mono-td">R4</td><td>S≥20 且 H&lt;0.2:超大计数软签名</td><td class="mono-td no">18</td><td>与 R3 同构的污染候选(如广汉 2023-11:25 种,H=0.02)</td></tr>
+      <tr><td class="mono-td">R5</td><td>D &gt; 1−1/S:超均匀群落上限</td><td class="mono-td">0</td><td>—</td></tr>
+    </tbody>
+  </table></div>
+  <div class="prose"><p>审计边界:作者未公开物种级记录,输入端(如 40.5% 清单型记录的样本内占比)无法从县-月聚合值直接核验——我用模拟补足其影响方向(见证据Ⅰ),并呼吁公开物种级数据。</p></div>
 </section>
 
 <!-- ============ 证据 I ============ -->
@@ -341,7 +360,7 @@ footer{border-top:1px solid var(--line);margin-top:80px}
 
 <!-- ============ 终审 ============ -->
 <section id="final" class="rv">
-  <p class="sec-tag">终审 · SPECIFICATION CURVE</p>
+  <p class="sec-tag">RE-ESTIMATION · 校正后的重新估计</p>
   <h2>正确清洗、正确指标、正确统计之后,答案是什么?</h2>
   <p class="sec-sub">把每一个可辩护的分析决策做全交叉:样本(全样本 / 政策记录县)× 清洗(照原文 / 剔污染行 / ≥2 观鸟者)× 指标(Shannon / Simpson / 对数丰富度)× 努力校正(作者的 Duration / 显式总努力项)= 36 条分析路径,统一县 + 年月固定效应、县级聚类。</p>
 
@@ -359,7 +378,7 @@ footer{border-top:1px solid var(--line);margin-top:80px}
       <div class="fcell"><div class="fo">Simpson 多样性</div><div class="fv">+0.10% / SD</div><div class="fc">95% CI [−0.74, +0.94] · P=0.81</div></div>
       <div class="fcell"><div class="fo">物种丰富度(log)</div><div class="fv">−1.06% / SD</div><div class="fc">95% CI [−3.89, +1.77] · P=0.46</div></div>
     </div>
-    <p class="foot"><b>边界声明:</b>这不是"光伏无害"的证明。地面光伏可能置换栖息地,需要严格的影响研究。本重分析表明的是:<b>这套数据在这个设计下,任何方向的效应都检测不到</b>;对丰富度可排除超过约 4%/SD 的下降。要回答真正的问题,需要物种级记录、显式观测过程模型(occupancy / list-length)与针对光伏设施的配对野外设计。</p>
+    <p class="foot"><b>这个零有多硬(功效分析):</b>校正后的 Shannon 设计在 80% 功效下可检出 1.57% 的效应;<b>若发表的 −2.10% 为真,检出功效达 96%</b>——未检出,且区间将其排除。丰富度侧检验力较弱(MDE 4.0%),如实报告:只能排除超过约 4%/SD 的下降。<br><br><b>边界声明:</b>这不是"光伏无害"的证明。地面光伏可能置换栖息地,需要严格的影响研究。本审计表明的是:<b>这套数据在这个设计下,任何方向的效应都检测不到</b>。要回答真正的问题,需要物种级记录、显式观测过程模型(occupancy / list-length)与针对光伏设施的配对野外设计(BACI、点计数、声学监测)。</p>
   </div>
 </section>
 
@@ -382,6 +401,17 @@ footer{border-top:1px solid var(--line);margin-top:80px}
         <td>同 Shannon,且必须先解决极端计数验证</td></tr>
     </tbody>
   </table></div>
+  <div class="prose" style="margin-top:20px"><p><b>我的指标选择及其检验</b>:丰富度是这套数据里唯一能辩护的入口(仅需出现/不出现,清单型记录不损害它),我把它当计数变量,用泊松固定效应 + 观鸟人数 offset——即渔业"单位努力渔获量"(CPUE)的努力标准化逻辑。结果显示"效应"完全由努力处理方式支配:</p></div>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th>丰富度模型(泊松 FE,县聚类)</th><th>β(PSI)</th><th>P</th><th>换算(%/SD)</th></tr></thead>
+    <tbody>
+      <tr><td>不校正努力(作者的逻辑)</td><td class="mono-td no">−0.0233</td><td class="mono-td">6×10⁻⁸</td><td class="mono-td no">−9.2%</td></tr>
+      <tr><td>+ log(观鸟人数) offset(完全比例校正)</td><td class="mono-td">+0.0151</td><td class="mono-td">0.006</td><td class="mono-td">+6.4%</td></tr>
+      <tr><td>offset + 仅政策记录县</td><td class="mono-td">+0.0055</td><td class="mono-td">0.32</td><td class="mono-td">+2.3%</td></tr>
+      <tr><td>offset + 时长项 + 政策记录县</td><td class="mono-td">+0.0029</td><td class="mono-td">0.55</td><td class="mono-td">+1.2%</td></tr>
+    </tbody>
+  </table></div>
+  <div class="prose"><p>不校正是 −9%,完全比例校正翻成 +6%(丰富度-努力曲线饱和、真实弹性小于 1,offset 会过度校正),弹性放开并限政策记录县后归零——<span class="hl">数据里没有一个独立于观测过程的政策信号</span>。</p></div>
   <div class="cards" style="margin-top:18px">
     <div class="card"><div class="k">CHECKLIST / 合格条件七条</div><h3>可直接用于审稿的门槛</h3>
       <p>① 仅完整清单;② 记录级质控(计数上限/空间精度/时间有效性);③ 总努力与人均努力分开显式建模;④ 等覆盖率(而非等样本量)比较;⑤ 检测过程建模(occupancy / list-length)至少作敏感性;⑥ 声明推断对象是"观测群落"还是"真实群落";⑦ 同时报告 Hill q=0,1,2,结论不得依赖单一指数。</p></div>

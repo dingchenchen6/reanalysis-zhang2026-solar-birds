@@ -1,3 +1,5 @@
+> **附录性材料** — 本文件保留各方评论逐条裁定、编辑流程讨论与投稿策略细节。主报告见《独立审计报告_Zhang2026_Science光伏与鸟类多样性.md》。
+
 # 深度评估报告:Zhang et al. (2026) "China's solar expansion policy reduces bird diversity"
 
 **评估性质**:资深领域专家 + 高级编辑双重视角的全面技术评估

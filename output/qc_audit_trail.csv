@@ -1,0 +1,6 @@
+rule,n_flagged,n_total
+R1: H > ln(S)  (impossible),0,46283
+R2: Gini-Simpson > 1 - exp(-H)  (violates 2D<=1D),0,46283
+"R3: S>=2 with H = 0  (multi-species, zero entropy)",1,46283
+R4: S>=20 with H < 0.2  (single-huge-count signature),18,46283
+R5: D > 1 - 1/S  (exceeds even-community cap),0,46283
