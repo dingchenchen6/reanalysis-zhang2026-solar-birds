@@ -185,3 +185,13 @@ ggsave(file.path(figd, "Fig3_specification_curve.pdf"), fig3,
 ggsave(file.path(figd, "Fig3_specification_curve.png"), fig3,
        width = 18.3, height = 10.5, units = "cm", dpi = 600)
 cat("\nFig 3 written.\n")
+
+
+## ---- 投稿版 fig. S1(去叙述性标题)/ submission version --------------------
+figS1 <- fig3 & labs(title = NULL, subtitle = NULL)
+subfig <- file.path(base, "submission/figures")
+ggsave(file.path(subfig, "FigS1.pdf"), figS1, width = 18.3, height = 11.4,
+       units = "cm", device = cairo_pdf)
+ggsave(file.path(subfig, "FigS1.png"), figS1, width = 18.3, height = 11.4,
+       units = "cm", dpi = 600)
+cat("submission FigS1 written\n")

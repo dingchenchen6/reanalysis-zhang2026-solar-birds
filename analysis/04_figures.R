@@ -121,7 +121,7 @@ pD <- ggplot(xh, aes(date, ShannonBD)) +
   geom_point(data = xh[date == bad_date], colour = OI["red"], size = 1.8) +
   annotate("text", x = bad_date + 260, y = 0.62, hjust = 0, vjust = 0, size = 2.1,
            colour = OI["red"],
-           label = "Mar 2015: a single record of\n2,147,483,647 little egrets (int32 limit)\ncollapses H to nearly zero") +
+           label = "Mar 2015: a corrupted count\ncollapses H to 8\u00d710\u207b\u2077 (4 species)") +
   labs(tag = "D", x = NULL, y = "Shannon H, Xinhui County",
        title = "Uncleaned records corrupt the dependent variable",
        subtitle = "18 further county-months show ≥20 species yet H < 0.2") +
@@ -231,3 +231,18 @@ ggsave(file.path(figd, "Fig2_effect_fragility.png"), fig2,
        width = 13.5, height = 14.5, units = "cm", dpi = 600)
 
 cat("Figures written to", figd, "\n")
+
+
+## ---- 投稿版:去除图内叙述性标题(期刊规范)/ submission versions -----------
+subfig <- file.path(base, "submission/figures")
+fig1s <- fig1 & labs(title = NULL, subtitle = NULL)
+fig2s <- fig2 & labs(title = NULL, subtitle = NULL)
+ggsave(file.path(subfig, "Fig1.pdf"), fig1s, width = 18.3, height = 10.2,
+       units = "cm", device = cairo_pdf)
+ggsave(file.path(subfig, "Fig1.png"), fig1s, width = 18.3, height = 10.2,
+       units = "cm", dpi = 600)
+ggsave(file.path(subfig, "Fig2.pdf"), fig2s, width = 18.3, height = 8.6,
+       units = "cm", device = cairo_pdf)
+ggsave(file.path(subfig, "Fig2.png"), fig2s, width = 18.3, height = 8.6,
+       units = "cm", dpi = 600)
+cat("submission Fig1/Fig2 written\n")

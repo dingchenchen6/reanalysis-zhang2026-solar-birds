@@ -146,3 +146,79 @@ ggsave(file.path(figd, "Fig4_birding_data_anatomy.pdf"), fig4,
        width = 8.6, height = 6.9, bg = "white")
 cat(sprintf("Fig4 v2 saved. Gini=%.3f top1=%.1f%% top10=%.1f%%\n",
             gini, 100 * top1, 100 * top10))
+
+
+## ---- 投稿版 fig. S2:英文标签、无叙述性标题 / English submission version ---
+pA_en <- ggplot(cb, aes(cx, cy)) +
+  geom_ribbon(aes(ymin = cy, ymax = cx), fill = OI["blue"], alpha = .08) +
+  geom_abline(slope = 1, intercept = 0, linetype = "22",
+              colour = OI["grey"], linewidth = .4) +
+  geom_line(colour = OI["blue"], linewidth = 1) +
+  annotate("text", x = .40, y = .60, size = 2.8, colour = OI["grey"],
+           angle = 45, label = "line of equality") +
+  annotate("text", x = .05, y = .96, hjust = 0, vjust = 1, size = 3.2,
+           colour = "#16202B", fontface = "bold",
+           label = sprintf("Gini = %.2f", gini)) +
+  annotate("text", x = .05, y = .84, hjust = 0, vjust = 1, size = 2.9,
+           colour = "#33404E", lineheight = 1.15,
+           label = sprintf("top 1%% of counties: %.0f%% of effort\ntop 10%%: %.0f%% of effort",
+                           100 * top1, 100 * top10)) +
+  scale_x_continuous(labels = percent_format(accuracy = 1)) +
+  scale_y_continuous(labels = percent_format(accuracy = 1)) +
+  coord_equal() +
+  labs(tag = "A", x = "Cumulative share of counties (ascending effort)",
+       y = "Cumulative share of birdwatchers") + theme_pub
+pB_en <- ggplot(bins, aes(g, share, fill = hl)) +
+  geom_col(width = .66) +
+  geom_text(aes(label = percent(share, accuracy = .1)), vjust = -.5,
+            size = 2.9, colour = "#33404E") +
+  scale_fill_manual(values = c(`TRUE` = unname(OI["verm"]), `FALSE` = "#9DC6E0")) +
+  annotate("text", x = 2.6, y = .335, hjust = 0, size = 3.0,
+           colour = OI["verm"], fontface = "bold", lineheight = 1.15,
+           label = "38.8% of county-months:\na single birdwatcher") +
+  annotate("curve", x = 2.5, xend = 1.36, y = .33, yend = .40,
+           curvature = .25, linewidth = .35, colour = OI["verm"],
+           arrow = arrow(length = unit(4, "pt"), type = "closed")) +
+  scale_y_continuous(labels = percent_format(accuracy = 1),
+                     limits = c(0, .46), expand = expansion(mult = c(0, .02))) +
+  labs(tag = "B", x = "Birdwatchers in the county-month",
+       y = "Share of county-months") + theme_pub
+band_en <- data.table(x1 = c(3.5, 8.5), x2 = c(5.5, 11.5),
+                      lab = c("spring migration", "autumn & wintering"))
+pC_en <- ggplot(seas, aes(factor(month), cm)) +
+  geom_rect(data = band_en, aes(xmin = x1, xmax = x2, ymin = -Inf, ymax = Inf),
+            inherit.aes = FALSE, fill = OI["orange"], alpha = .10) +
+  geom_col(fill = OI["green"], alpha = .85, width = .66) +
+  geom_text(data = band_en, aes(x = (x1 + x2)/2, y = 5350, label = lab),
+            inherit.aes = FALSE, size = 2.6, colour = "#8A6A1F") +
+  scale_y_continuous(labels = label_comma(), limits = c(0, 5600),
+                     expand = expansion(mult = c(0, 0))) +
+  labs(tag = "C", x = "Month", y = "County-months with records") + theme_pub
+dl_en <- copy(dl)
+dl_en[, grp := fifelse(grp == "热点县", "hotspot", "non-hotspot")]
+cols_en <- c(hotspot = unname(OI["blue"]), `non-hotspot` = unname(OI["verm"]))
+pD_en <- ggplot(dl_en, aes(YEAR, rel, colour = grp, linetype = what)) +
+  geom_line(linewidth = .85) +
+  geom_point(data = dl_en[what == "观鸟人数"], size = 1.4) +
+  scale_y_log10(breaks = c(1, 10, 100), labels = c("\u00d71", "\u00d710", "\u00d7100"),
+                limits = c(0.8, 480)) +
+  scale_colour_manual(values = cols_en) +
+  scale_linetype_manual(values = c("观鸟人数" = "solid", "政策强度" = "22")) +
+  scale_x_continuous(breaks = c(2014, 2017, 2020, 2023),
+                     expand = expansion(mult = c(.02, .42))) +
+  annotate("text", x = 2023.15, y = 299, hjust = 0, size = 3,
+           colour = OI["verm"], fontface = "bold", label = "non-hotspot\n\u00d7299") +
+  annotate("text", x = 2023.15, y = 110, hjust = 0, size = 3,
+           colour = OI["blue"], fontface = "bold", label = "hotspot\n\u00d7134") +
+  annotate("text", x = 2023.15, y = 3.4, hjust = 0, size = 2.8,
+           colour = "#5B6B7A", lineheight = 1.1, label = "policy stringency\n\u00d73\u20134") +
+  annotate("text", x = 2014.2, y = 330, hjust = 0, size = 2.8,
+           colour = "#33404E", lineheight = 1.2,
+           label = "solid: birdwatcher counts (top 25% = hotspot)\ndashed: mean policy stringency") +
+  labs(tag = "D", x = NULL, y = "Multiple of 2014 level (log scale)") + theme_pub
+figS2 <- (pA_en | pB_en) / (pC_en | pD_en)
+subfig <- file.path(base, "submission/figures")
+ggsave(file.path(subfig, "FigS2.png"), figS2, width = 8.6, height = 6.6,
+       dpi = 600, bg = "white")
+ggsave(file.path(subfig, "FigS2.pdf"), figS2, width = 8.6, height = 6.6, bg = "white", device = cairo_pdf)
+cat("submission FigS2 (English) written\n")
