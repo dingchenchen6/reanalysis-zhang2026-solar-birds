@@ -1,4 +1,6 @@
-# Birdwatchers, not birds — reanalysis of Zhang et al. (2026), *Science* 393:831–836
+# Birdwatchers, not birds
+
+**Live report / 在线报告**: https://dingchenchen6.github.io/reanalysis-zhang2026-solar-birds/ — reanalysis of Zhang et al. (2026), *Science* 393:831–836
 
 **观鸟者,而非鸟:对《中国光伏扩张政策降低鸟类多样性》的精确复现、三层批判与 36 规格重分析**
 
@@ -65,7 +67,6 @@ Every number in the Comment and the report is written to `output/*.csv` by these
 - Jiangshan Lai on R² decomposition and effect size — [WeChat](https://mp.weixin.qq.com/s/Ojlk0ZzHmNv6CXf5Sm-gdQ)
 - Jiachao Peng on causal-inference standards — [WeChat](https://mp.weixin.qq.com/s/CQ0Wv8xXrYpAnW9TwvLqsw)
 - "Ersha" on the misleading R² presentation — [WeChat](https://mp.weixin.qq.com/s/ibJI08lYmrj1dLDeiaameQ)
-- H. Song, independent econometric audit — [figshare 10.6084/m9.figshare.33328569](https://doi.org/10.6084/m9.figshare.33328569)
 
 Our contribution is complementary: the **measurement-validity layer** (saturation curves, evenness signature, corruption entering the dependent variable, checklist-type simulations), the ecological interpretation, and the systematic 36-specification "what do the data actually support" answer.
 

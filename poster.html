@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>海报 · 观鸟者,而非鸟</title>
+<style>
+:root{
+  --paper:#FAFBFC; --ink:#16202B; --muted:#5B6B7A;
+  --blue:#0072B2; --red:#D55E00; --orange:#E69F00; --green:#009E73;
+  --line:#D9E0E6; --card:#FFFFFF;
+  --mono:'IBM Plex Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+  --serif:'Songti SC','Noto Serif SC',serif;
+  --sans:'PingFang SC','Noto Sans SC',-apple-system,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{width:1080px;height:1440px;background:var(--paper);color:var(--ink);
+  font-family:var(--sans);overflow:hidden;position:relative}
+.frame{position:absolute;inset:28px;border:1.5px solid var(--line);
+  border-radius:10px;padding:52px 56px 44px;display:flex;
+  flex-direction:column;background:
+  linear-gradient(180deg,#FFFFFF 0%,#FAFBFC 30%)}
+.top{display:flex;justify-content:space-between;align-items:baseline}
+.brand{font-family:var(--serif);font-weight:900;font-size:26px}
+.brand em{color:var(--red);font-style:normal}
+.eyebrow{font-family:var(--mono);font-size:15px;letter-spacing:.14em;
+  color:var(--muted)}
+h1{font-family:var(--serif);font-weight:900;font-size:64px;line-height:1.34;
+  margin-top:40px}
+h1 .q{color:var(--red)}
+.sub{font-size:22px;color:var(--muted);margin-top:16px;line-height:1.7}
+.sub i{font-family:Georgia,serif}
+.record{background:var(--card);border:1.5px solid var(--line);
+  border-top:6px solid var(--red);border-radius:10px;margin-top:40px;
+  padding:30px 34px;font-family:var(--mono);
+  box-shadow:0 16px 40px rgba(22,32,43,.08)}
+.rc-head{display:flex;justify-content:space-between;font-size:16px;
+  color:var(--muted);letter-spacing:.08em}
+.rc-sp{font-size:22px;margin-top:18px}
+.rc-sp i{font-family:var(--serif);color:var(--muted)}
+.rc-n{font-size:64px;font-weight:600;color:var(--red);margin-top:6px;
+  letter-spacing:.01em;font-variant-numeric:tabular-nums}
+.rc-note{font-size:17px;color:var(--muted);border-top:1.5px dashed var(--line);
+  margin-top:18px;padding-top:14px;line-height:1.75;font-family:var(--sans)}
+.rc-note b{color:var(--ink)}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:38px}
+.cell{background:var(--card);border:1.5px solid var(--line);border-radius:10px;
+  padding:22px 20px 18px;text-align:left}
+.cell .n{font-family:var(--mono);font-size:40px;font-weight:600;
+  color:var(--blue);font-variant-numeric:tabular-nums}
+.cell .n.bad{color:var(--red)}
+.cell .l{font-size:15.5px;color:var(--muted);line-height:1.6;margin-top:6px}
+.verdict{background:var(--ink);color:#E9EEF3;border-radius:10px;
+  margin-top:38px;padding:34px 38px;font-size:24px;line-height:1.8}
+.verdict b{color:var(--orange)}
+.verdict .en{display:block;font-size:15px;color:#9FB0BF;margin-top:12px;
+  font-family:var(--mono);line-height:1.7}
+.foot{margin-top:auto;display:flex;justify-content:space-between;
+  align-items:flex-end;border-top:1.5px solid var(--line);padding-top:26px}
+.foot .who{font-size:17px;color:var(--muted);line-height:1.8}
+.foot .who b{color:var(--ink)}
+.foot .url{font-family:var(--mono);font-size:16.5px;color:var(--blue);
+  text-align:right;line-height:1.9}
+.foot .url .tag{display:inline-block;background:var(--red);color:#fff;
+  border-radius:6px;padding:3px 12px;font-size:14px;letter-spacing:.1em;
+  margin-bottom:6px}
+</style>
+</head>
+<body>
+<div class="frame">
+  <div class="top">
+    <div class="brand">观鸟者,<em>而非鸟</em></div>
+    <div class="eyebrow">独立审计 · TECHNICAL COMMENT</div>
+  </div>
+
+  <h1>光伏政策<span class="q">“降低”</span>的是观测努力,<br>不是鸟类多样性</h1>
+  <p class="sub">对 Zhang et al. (2026) <i>Science</i> 393:831–836 的完整重分析:
+  精确复现,然后逐层校正数据、指标与统计。</p>
+
+  <div class="record">
+    <div class="rc-head"><span>观鸟记录 · 中国观鸟记录中心</span><span>2015-03-21 23:59:45</span></div>
+    <div class="rc-sp">白鹭 <i>Egretta garzetta</i> — 广东 · 江门 · 新会区</div>
+    <div class="rc-n">2,147,483,647 只</div>
+    <div class="rc-note">= 2³¹ − 1(32 位整数上限)。这条记录令该县当月香农指数塌缩至
+    <b>H = 8×10⁻⁷</b>,并<b>未经任何清洗直接进入</b>论文回归的因变量。</div>
+  </div>
+
+  <div class="grid">
+    <div class="cell"><div class="n">×171</div>
+      <div class="l">样本内观鸟人数十年增长,与政策强度上升同期</div></div>
+    <div class="cell"><div class="n bad">38.8%</div>
+      <div class="l">县-月仅一名观鸟者;单人月均 15 种,百人月均 142 种</div></div>
+    <div class="cell"><div class="n bad">0.03%</div>
+      <div class="l">政策变量对多样性方差的真实解释量</div></div>
+    <div class="cell"><div class="n">18/18</div>
+      <div class="l">全部努力校正规格:效应与零不可区分</div></div>
+  </div>
+
+  <div class="verdict">
+    校正观测努力后,效应为 <b>+0.14%</b>(95% CI −0.96 ~ +1.24),区间排除已发表的
+    −2.10%;若该效应为真,本设计有 <b>96% 的功效</b>检出它,而实际并未检出。
+    <span class="en">Corrected for observation effort, the reported effect vanishes.
+    All analysis code and derived tables are public and reproducible.</span>
+  </div>
+
+  <div class="foot">
+    <div class="who"><b>丁晨晨</b> · 北京大学<br>2026-08-26 · 全部分析可复现</div>
+    <div class="url"><span class="tag">完整报告</span><br>
+      dingchenchen6.github.io/<br>reanalysis-zhang2026-solar-birds</div>
+  </div>
+</div>
+</body>
+</html>
