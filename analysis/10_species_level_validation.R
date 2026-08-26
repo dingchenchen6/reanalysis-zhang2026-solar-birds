@@ -1,7 +1,7 @@
 # ============================================================
 # Scientific question / 科学问题:
 # Species-level verification using the record-level China Birdwatch
-# platform data held by our new-records-mechanism project:
+# platform data that I hold through the new-records-mechanism project:
 # (1) what share of checklists are "all-ones" (no abundance info),
 #     platform-wide and within the paper's 2014-2023 window?
 # (2) can the three impossible records reported by the Ornithological
@@ -9,7 +9,7 @@
 # (3) when county-month Shannon is recomputed from records under a
 #     minimal QC protocol, how far does it move from the paper's
 #     dependent variable?
-# 用我们新纪录机制项目持有的记录级观鸟平台数据做物种级核验:
+# 用我在新纪录机制项目中持有的记录级观鸟平台数据做物种级核验:
 # (1) "全1清单"占比(平台层面与论文时间窗内);
 # (2) 分会披露的三条不可能记录能否直接定位,极端计数共有多少;
 # (3) 按最低限度质控协议从记录重算县-月 Shannon,与论文因变量差多远。

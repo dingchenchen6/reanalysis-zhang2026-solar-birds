@@ -3,10 +3,10 @@
 # Why would solar-policy stringency "reduce" birdwatcher numbers?
 # Is PSI -> effort a genuine behavioural effect, or the signature of
 # differential trends that contaminates ANY outcome under this TWFE
-# design? We treat birdwatcher count as a NEGATIVE-CONTROL OUTCOME
-# and test four competing explanations.
+# design? I treat birdwatcher count as a NEGATIVE-CONTROL OUTCOME
+# and test four competing explanations against the panel.
 # 光伏政策强度为何会"减少"观鸟者?PSI->努力是真实行为效应,还是
-# 差异趋势在该 TWFE 设计下污染任何结果变量的签名?我们把观鸟人数
+# 差异趋势在该 TWFE 设计下污染任何结果变量的签名?我把观鸟人数
 # 作为阴性对照结果变量,检验四个竞争解释。
 #
 # Competing explanations / 竞争解释:
