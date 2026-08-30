@@ -1,0 +1,9 @@
+model,term,estimate,se,p,n
+lnBN ~ lnNL | ym,lnNL,0.1625,0.0186,4.5e-18,46528
+lnBN ~ lnPD | ym,lnPD,0.0941,0.0145,1.09e-10,46528
+lnBN ~ lnNL + lnPD | ym,lnNL,0.2,0.0302,3.99e-11,46528
+lnBN ~ lnNL + lnPD | ym,lnPD,-0.0314,0.0244,0.198,46528
+"share of birdwatchers, top nightlight decile",descriptive,0.36,NA,NA,2501
+"share of birdwatchers, bottom nightlight half",descriptive,0.258,NA,NA,2501
+"between-county cor(mean lnBN, mean lnNL)",descriptive,0.222,NA,NA,2501
+"between-county cor(mean lnBN, mean lnPD)",descriptive,0.147,NA,NA,2501

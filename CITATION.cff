@@ -1,0 +1,12 @@
+cff-version: 1.2.0
+message: "If you use this code or the derived tables, please cite this repository (and the Technical Comment once published)."
+type: software
+title: "Observation effort, not bird diversity: reanalysis of Zhang et al. (2026), Science 393:831-836"
+authors:
+  - family-names: Ding
+    given-names: Chenchen
+    affiliation: "Peking University"
+    email: dingchenchen@pku.edu.cn
+date-released: "2026-08-30"
+url: "https://github.com/dingchenchen6/reanalysis-zhang2026-solar-birds"
+license: MIT

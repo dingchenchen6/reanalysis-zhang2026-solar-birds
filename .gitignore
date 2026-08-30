@@ -1,0 +1,16 @@
+# Inputs not redistributed here (see README: Reproducing)
+original_replication/
+paper/
+data_raw/
+
+# Large derived binary — rebuilt by analysis/01
+output/panel_master.rds
+
+# Local working material, not part of the public archive
+private/
+submission/
+
+# System and editor
+.DS_Store
+.Rhistory
+.*/
