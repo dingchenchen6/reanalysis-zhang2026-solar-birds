@@ -44,7 +44,10 @@ analysis/14_desert_blind_spot.R         desert / Three-North subgroups (Table S1
                                         tests, coverage, effort-adjusted re-estimation, power and equivalence bounds,
                                         record-level composition of the desert outcome variable
 analysis/15_fig5_desert_blind_spot.R    Figure 5 (desert blind spot; four panels)
+analysis/16_zero_exclusion_sensitivity.R estimates under six rules for excluding PSI = 0 and ShannonBD = 0
+analysis/17_export_cleaned_panel.R      exports the analysis-ready panel and verifies it reproduces both headline estimates
 run_all.R                               runs the analysis scripts in dependency order
+data/panel_county_month_cleaned.csv.gz  analysis-ready county-month panel with the Comment's cleaning flags (see data/README.md)
 output/                                 derived tables; the direct source of every number quoted
 figures/                                figures as PDF and 600-dpi PNG
 独立审计报告_*.md                        full audit report (Chinese)
@@ -54,7 +57,9 @@ index.html                              self-contained interactive summary (figu
 
 ## Reproducing
 
-Original inputs are not redistributed here. Obtain the authors' replication package first:
+**Cleaned panel, ready to use.** `data/panel_county_month_cleaned.csv.gz` is the county-month panel behind every estimate in the Comment, with flags for the estimation sample, the preferred sample, imputed policy zeros, and the 19 corrupted county-months. Subsetting on `in_estimation_sample` reproduces the authors' β = −0.0125 (*n* = 46,371); subsetting on `in_preferred_sample` reproduces our preferred +0.14% (95% CI −0.96 to +1.24, *n* = 25,996). Script 17 verifies both by reading the exported file back. Variable definitions and an R example are in `data/README.md`.
+
+**Rebuilding from source.** The authors' original files are not redistributed here. Obtain the authors' replication package first:
 
 ```bash
 git clone https://github.com/jianke22/China-s-solar-expansion-policy-reduces-bird-diversity original_replication
@@ -79,11 +84,13 @@ Rscript analysis/12_visits_proxy_robustness.R    # record-level data required
 Rscript analysis/13_effort_accessibility.R       # public package only
 Rscript analysis/14_desert_blind_spot.R          # sections 1-4 public package only; section 5 needs record-level data + county boundaries
 Rscript analysis/15_fig5_desert_blind_spot.R     # after 14; county boundaries required
+Rscript analysis/16_zero_exclusion_sensitivity.R # public package only
+Rscript analysis/17_export_cleaned_panel.R       # writes data/panel_county_month_cleaned.csv.gz
 ```
 
 Scripts 14 (section 5) and 15 locate records and draw the map with a county boundary layer that is not redistributed here (the 2019 standard map of China, 审图号 GS(2019)1822, county layer in Albers projection); point `CHINA_COUNTY_SHP` at your copy. Section 5 of script 14 skips itself, and `run_all.R` skips script 15, when the layer or the record-level data are absent.
 
-Or run `Rscript run_all.R`, which executes the same order and stops at the first error. Tested with R 4.5.1 on macOS; package versions used for the published numbers are listed in `sessionInfo.txt`. `output/panel_master.rds` is not tracked (it is rebuilt by script 01); every number quoted in the Comment, the report, and the web page is written to `output/*.csv` by these scripts.
+Or run `Rscript run_all.R`, which executes the same order and stops at the first error. Tested with R 4.5.1 on macOS; package versions used for the published numbers are listed in `sessionInfo.txt`. `output/panel_master.rds` is not tracked (it is rebuilt by script 01, and its flagged CSV export is in `data/`); every number quoted in the Comment, the report, and the web page is written to `output/*.csv` by these scripts.
 
 ## Related public critiques
 

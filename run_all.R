@@ -37,7 +37,9 @@ scripts <- c(
   "12_visits_proxy_robustness.R", # 清单数作第三努力代理(需 data_raw/)
   "13_effort_accessibility.R",    # 努力与夜光/人口密度的县-月关联(仅需公开包)
   "14_desert_blind_spot.R",       # 荒漠/三北亚组:复现、覆盖、校正、功效(第 5 节需 data_raw/ 与县界)
-  "15_fig5_desert_blind_spot.R"   # 图 5(依赖 14;需县界 shapefile,见 CHINA_COUNTY_SHP)
+  "15_fig5_desert_blind_spot.R",  # 图 5(依赖 14;需县界 shapefile,见 CHINA_COUNTY_SHP)
+  "16_zero_exclusion_sensitivity.R", # 剔除 PSI=0 / ShannonBD=0 的六种规则(仅需公开包)
+  "17_export_cleaned_panel.R"     # 导出分析用面板并回读验证两项头条估计(仅需公开包)
 )
 
 optional <- c("10_species_level_validation.R", "11_raw_platform_validation.R",
