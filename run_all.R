@@ -18,6 +18,8 @@
 #     06 生成 hotspot_trajectories.csv,09 依赖它;
 #     02 生成的派生表供 04 绘图。下面的顺序已满足这些依赖。
 #   - 缺少记录级数据时,10-11 会给出下载提示并跳过,其余结果不受影响。
+#   - 14 的第 1-4 节只需公开包;第 5 节与 15 另需县级边界 shapefile
+#     (环境变量 CHINA_COUNTY_SHP),缺失时 14 自行跳过第 5 节,15 被跳过。
 # ============================================================
 
 scripts <- c(
@@ -33,11 +35,13 @@ scripts <- c(
   "10_species_level_validation.R",# 记录级核验(需 data_raw/)
   "11_raw_platform_validation.R", # 原始省级交付核验(需 data_raw/)
   "12_visits_proxy_robustness.R", # 清单数作第三努力代理(需 data_raw/)
-  "13_effort_accessibility.R"     # 努力与夜光/人口密度的县-月关联(仅需公开包)
+  "13_effort_accessibility.R",    # 努力与夜光/人口密度的县-月关联(仅需公开包)
+  "14_desert_blind_spot.R",       # 荒漠/三北亚组:复现、覆盖、校正、功效(第 5 节需 data_raw/ 与县界)
+  "15_fig5_desert_blind_spot.R"   # 图 5(依赖 14;需县界 shapefile,见 CHINA_COUNTY_SHP)
 )
 
 optional <- c("10_species_level_validation.R", "11_raw_platform_validation.R",
-              "12_visits_proxy_robustness.R")
+              "12_visits_proxy_robustness.R", "15_fig5_desert_blind_spot.R")
 
 for (s in scripts) {
   cat("\n========== ", s, " ==========\n", sep = "")

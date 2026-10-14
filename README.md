@@ -14,11 +14,13 @@ Chenchen Ding (Peking University) · August 2026
 
 ## Summary
 
-I started from the authors' public replication package, reproduced their headline estimate to the fourth decimal place (β = −0.0125, clustered SE = 0.0037, N = 46,371; the advertised −2.10% per s.d. of policy stringency), and then ran the checks I would apply to any citizen-science dataset before regression: record-level quality control, measurement-validity tests, metric justification, and effort standardization. Three findings emerged.
+I started from the authors' public replication package, reproduced their headline estimate to the fourth decimal place (β = −0.0125, clustered SE = 0.0037, N = 46,371; the advertised −2.10% per s.d. of policy stringency), and then ran the checks I would apply to any citizen-science dataset before regression: record-level quality control, measurement-validity tests, metric justification, and effort standardization. Four findings emerged.
 
 1. **Measurement.** The county-month Shannon index reflects the observation process more than bird communities. In the estimation sample, 38.8% of county-months rest on a single birdwatcher and the median county is observed in 11 of 120 months; observed diversity is a steep saturating function of birdwatcher numbers. A record of 2,147,483,647 little egrets (the int32 maximum) enters the dependent variable unfiltered; my consistency screen singled out that county-month, on arithmetic grounds alone, among all 46,283 before I knew which record caused it. Species-level checks on record-level platform data I hold through a separate project show that counts equal one in 46.9% of 2014–2023 checklists (43.7% in the platform's raw 2024 delivery; the Ornithological Society reports 40.5% platform-wide).
 2. **Confounding.** Birdwatcher counts grew 171-fold over 2014–2023, in step with policy stringency, while the authors' only effort control is hours per birder — a ratio that discards total effort and itself responds to policy. Adding ln(birdwatchers) to their own specification moves the coefficient to +0.0032 (P = 0.31). Treating birdwatcher numbers as a negative-control outcome, I find the association shrinks by 81% in policy-documented counties and that next calendar-year policy "affects" current birdwatchers (β = −0.051, P < 10⁻⁵) — a pre-trend, not a causal effect.
 3. **Inference.** PSI is imputed as zero for 703 of 2,344 counties (43.9% of observations) that never appear in the policy source; restricting to documented counties gives β = −0.0027 (P = 0.49). PSI uniquely explains 0.03% of outcome variance. Across all 36 defensible specifications, every significant negative estimate arises without effort terms, and all 18 effort-adjusted paths are null. My preferred corrected estimate is +0.14% per s.d. (95% CI −0.96 to +1.24), an interval that excludes the published −2.10%; the corrected design would have detected that effect with 96% power.
+
+4. **The desert subgroup.** The "not significant" estimates for sandy/gravel-desert and Three-North counties (the authors' Table S17) replicate exactly, but they are uninformative rather than reassuring. The desert subgroup holds 5,016 county-months (10.8% of the sample, 7.1% of recorded birdwatchers), its clustered SE is three times the national one, and it had 18% power to detect the published −2.10% (minimum detectable effect at 80% power: 5.6% per s.d., 2.7 times the headline; the smallest margin for which equivalence to zero can be claimed is ±6.5%). The indicator is a sandy-land class rather than a map of the arid north-west: of the 298 flagged counties in the estimation sample, 199 lie in the five north-western provinces that host the planned desert bases, 44 on the Tibetan Plateau and 55 elsewhere, and Hainan and Guangdong alone supply 22% of the subgroup's recorded birdwatchers; restricted to the north-western provinces, power falls to 9%. The desert–non-desert difference, which the authors did not test, is significant in their specification (P = 0.004) but not once effort terms are added (P = 0.13), because the non-desert effect itself disappears. At the record level, the 16 desert-specialist species together make up 2.3% of species records in desert counties, fewer than the Eurasian tree sparrow alone (2.4%); a county-month Shannon index built from these records cannot register changes in desert specialists.
 
 None of this shows that solar development is harmless to birds, and none of it shows that the observed changes are free of any ecological signal. What it shows is narrower and firmer: the published estimate is driven by how observation effort is handled, and this dataset under this design cannot identify a national-scale ecological effect in either direction.
 
@@ -38,6 +40,10 @@ analysis/10_species_level_validation.R  record-level verification: all-ones shar
 analysis/11_raw_platform_validation.R   semantic and share checks on the platform's raw provincial delivery
 analysis/12_visits_proxy_robustness.R   checklist-count (visits) as a third effort proxy
 analysis/13_effort_accessibility.R      effort vs nightlight / population density (spatial concentration)
+analysis/14_desert_blind_spot.R         desert / Three-North subgroups (Table S17): exact replication, between-group
+                                        tests, coverage, effort-adjusted re-estimation, power and equivalence bounds,
+                                        record-level composition of the desert outcome variable
+analysis/15_fig5_desert_blind_spot.R    Figure 5 (desert blind spot; four panels)
 run_all.R                               runs the analysis scripts in dependency order
 output/                                 derived tables; the direct source of every number quoted
 figures/                                figures as PDF and 600-dpi PNG
@@ -71,7 +77,11 @@ Rscript analysis/10_species_level_validation.R   # record-level data required
 Rscript analysis/11_raw_platform_validation.R    # record-level data required
 Rscript analysis/12_visits_proxy_robustness.R    # record-level data required
 Rscript analysis/13_effort_accessibility.R       # public package only
+Rscript analysis/14_desert_blind_spot.R          # sections 1-4 public package only; section 5 needs record-level data + county boundaries
+Rscript analysis/15_fig5_desert_blind_spot.R     # after 14; county boundaries required
 ```
+
+Scripts 14 (section 5) and 15 locate records and draw the map with a county boundary layer that is not redistributed here (the 2019 standard map of China, 审图号 GS(2019)1822, county layer in Albers projection); point `CHINA_COUNTY_SHP` at your copy. Section 5 of script 14 skips itself, and `run_all.R` skips script 15, when the layer or the record-level data are absent.
 
 Or run `Rscript run_all.R`, which executes the same order and stops at the first error. Tested with R 4.5.1 on macOS; package versions used for the published numbers are listed in `sessionInfo.txt`. `output/panel_master.rds` is not tracked (it is rebuilt by script 01); every number quoted in the Comment, the report, and the web page is written to `output/*.csv` by these scripts.
 

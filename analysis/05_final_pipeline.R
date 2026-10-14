@@ -76,7 +76,7 @@ run_spec <- function(sample, cleaning, outcome, effort, clu = "county",
                       fixef.rm = "singletons"),
                 error = function(e) NULL)
   if (is.null(f)) return(NULL)
-  data.table(sample, cleaning, outcome, effort, cluster = clu, era,
+  data.table(sample, cleaning, outcome, effort, cluster = if (clu == "省") "province" else clu, era,
              coef = coef(f)["PI"], se = se(f)["PI"], p = pvalue(f)["PI"],
              N = nobs(f))
 }
